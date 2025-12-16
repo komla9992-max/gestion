@@ -1,0 +1,19 @@
+import React, { useState } from "react";
+import TaskManagement from "./components/TaskManagement";
+import CaisseManagement from "./components/CaisseManagement";
+
+export default function App() {
+  const [users] = useState([
+    { name: "Alice", role: "admin" },
+    { name: "Bob", role: "employe" },
+  ]);
+
+  return (
+    <div style={{ padding: 20 }}>
+      <h1>Application de Gestion</h1>
+
+      <TaskManagement users={users} />
+      <CaisseManagement />
+    </div>
+  );
+}

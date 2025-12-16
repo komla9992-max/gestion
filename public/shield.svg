@@ -1,0 +1,54 @@
+<svg width="200" height="240" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bouclier principal en vert foncé -->
+  <path d="M100 15 
+           L45 45 
+           L45 185 
+           Q45 215 70 225 
+           L100 235 
+           L130 225 
+           Q155 215 155 185 
+           L155 45 
+           Z" 
+        fill="#1a5d3a" 
+        stroke="none"/>
+  
+  <!-- Bordure intérieure blanche épaisse -->
+  <path d="M100 30 
+           L55 57 
+           L55 180 
+           Q55 205 75 213 
+           L100 220 
+           L125 213 
+           Q145 205 145 180 
+           L145 57 
+           Z" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="12"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+  
+  <!-- Zone intérieure du bouclier (vert foncé également) -->
+  <path d="M100 35 
+           L58 60 
+           L58 177 
+           Q58 200 76 207 
+           L100 213 
+           L124 207 
+           Q142 200 142 177 
+           L142 60 
+           Z" 
+        fill="#1a5d3a"/>
+  
+  <!-- Lettres SES en blanc, police serif grasse, centrées -->
+  <text x="100" y="135" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="64" 
+        font-weight="bold" 
+        fill="#ffffff" 
+        text-anchor="middle" 
+        dominant-baseline="central"
+        style="font-weight: 700; letter-spacing: 2px;">
+    SES
+  </text>
+</svg>
