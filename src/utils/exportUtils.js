@@ -265,28 +265,38 @@ export const exportRecuCaissePDF = async (operation, client = null, entrepriseIn
     
     // ========== EN-TÊTE ==========
     // Logo à gauche
+    const logoWidth = 40
+    const logoHeight = 40
+    const logoX = 20
+    const logoRightEdge = logoX + logoWidth + 10 // Espace après le logo
     try {
-      await addLogoImage(doc, 20, 15, 40, 40)
+      await addLogoImage(doc, logoX, 15, logoWidth, logoHeight)
     } catch (logoError) {
       console.error('Erreur logo:', logoError)
-      drawLogo(doc, 20, 15, 40, 40)
+      drawLogo(doc, logoX, 15, logoWidth, logoHeight)
     }
     
-    // Nom de l'entreprise
+    // Centre de l'espace disponible à droite du logo
+    const textAreaStartX = logoRightEdge
+    const textAreaEndX = 190
+    const textCenterX = (textAreaStartX + textAreaEndX) / 2 // Centre de l'espace texte
+    
+    // Nom de l'entreprise centré dans l'espace à droite du logo
     doc.setFontSize(16)
     doc.setFont('times', 'bold')
     doc.setTextColor(0, 0, 0)
-    doc.text('COMPAGNIE DE GARDIENNAGE ET DE SÉCURITÉ PRIVÉE', 70, 25)
+    doc.text('SOCIETE D\'ENTRETIEN ET DE SECURITE', textCenterX, 25, { align: 'center' })
     
-    // Services de l'entreprise
+    // Services de l'entreprise centrés dans l'espace à droite du logo
     doc.setFontSize(9)
     doc.setFont('times', 'normal')
     doc.setTextColor(60, 60, 60)
     const services = 'Sécurité – Gardiennage – Surveillance – Caméra de surveillance Incendie – Entretien bureau – Entretien à domicile – Entretien express'
-    const splitServices = doc.splitTextToSize(services, 120)
+    const textAreaWidth = textAreaEndX - textAreaStartX
+    const splitServices = doc.splitTextToSize(services, textAreaWidth)
     let servicesY = 32
     splitServices.forEach((line, index) => {
-      doc.text(line, 70, servicesY + (index * 4))
+      doc.text(line, textCenterX, servicesY + (index * 4), { align: 'center' })
     })
     
     // ========== TITRE ==========
@@ -294,17 +304,18 @@ export const exportRecuCaissePDF = async (operation, client = null, entrepriseIn
     doc.setFont('times', 'bold')
     doc.setTextColor(0, 0, 0)
     const titleY = Math.max(70, 32 + (splitServices.length * 4) + 15)
-    doc.text('REÇU DE PAIEMENT', 105, titleY, { align: 'center' })
+    const pageCenterX = 105 // Centre de la page pour le titre principal
+    doc.text('REÇU DE PAIEMENT', pageCenterX, titleY, { align: 'center' })
     
     // ========== INFORMATIONS DU REÇU ==========
     let infoY = titleY + 15
     
-    // Numéro de reçu
+    // Numéro de reçu et date centrés sur toute la page
     doc.setFontSize(10)
     doc.setFont('times', 'normal')
-    doc.text(`N° Reçu: REC-${operation.id}`, 190, infoY, { align: 'right' })
+    doc.text(`N° Reçu: REC-${operation.id}`, pageCenterX, infoY, { align: 'center' })
     infoY += 6
-    doc.text(`Date: ${operation.date ? new Date(operation.date).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : new Date().toLocaleDateString('fr-FR')}`, 190, infoY, { align: 'right' })
+    doc.text(`Date: ${operation.date ? new Date(operation.date).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : new Date().toLocaleDateString('fr-FR')}`, pageCenterX, infoY, { align: 'center' })
     
     // ========== INFORMATIONS CLIENT (si disponible) ==========
     if (client) {
@@ -312,15 +323,15 @@ export const exportRecuCaissePDF = async (operation, client = null, entrepriseIn
       doc.setFontSize(12)
       doc.setFont('times', 'bold')
       doc.setTextColor(0, 0, 0)
-      doc.text('Reçu de:', 20, infoY)
+      doc.text('Reçu de:', pageCenterX, infoY, { align: 'center' })
       
       doc.setFontSize(10)
       doc.setFont('times', 'normal')
-      doc.text(client.nom || 'Client', 20, infoY + 8)
+      doc.text(client.nom || 'Client', pageCenterX, infoY + 8, { align: 'center' })
       if (client.adresse) {
-        const adresseLines = doc.splitTextToSize(client.adresse, 100)
+        const adresseLines = doc.splitTextToSize(client.adresse, 150)
         adresseLines.forEach((line, index) => {
-          doc.text(line, 20, infoY + 13 + (index * 5))
+          doc.text(line, pageCenterX, infoY + 13 + (index * 5), { align: 'center' })
         })
         infoY += 13 + (adresseLines.length * 5)
       } else {
