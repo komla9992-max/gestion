@@ -130,7 +130,7 @@ server {
 }
 "@
 
-$configFile = "nginx-${Domain}.conf"
+$configFile = "nginx-$Domain.conf"
 $nginxConfig | Out-File -FilePath $configFile -Encoding UTF8
 
 Write-Host "✅ Configuration Nginx créée: $configFile" -ForegroundColor Green
