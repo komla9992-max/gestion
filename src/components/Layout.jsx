@@ -113,7 +113,7 @@ const Layout = ({ children }) => {
           }}>
             <div style={{
               width: '100%',
-              maxWidth: '90px',
+              maxWidth: '120px',
               aspectRatio: '3/4',
               borderRadius: '12px',
               background: 'white',
@@ -124,8 +124,8 @@ const Layout = ({ children }) => {
               padding: '8px'
             }}>
               <img 
-                src="/images/télécharger.jpg" 
-                alt="CGSP Logo" 
+                src="/images/logoSES.jpg" 
+                alt="SES Logo" 
                 style={{
                   width: '100%',
                   height: '100%',
@@ -137,7 +137,7 @@ const Layout = ({ children }) => {
             </div>
             {sidebarOpen && (
               <h1 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 'bold', margin: 0, textAlign: 'center' }}>
-                CGSP
+                GESTION SES
               </h1>
             )}
           </div>

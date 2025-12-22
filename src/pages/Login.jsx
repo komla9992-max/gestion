@@ -72,8 +72,8 @@ const Login = () => {
           marginBottom: '2.5rem'
         }}>
           <div style={{
-            width: '150px',
-            height: '180px',
+            width: '200px',
+            height: '240px',
             borderRadius: '16px',
             background: 'white',
             display: 'flex',
@@ -84,8 +84,8 @@ const Login = () => {
             padding: '12px'
           }}>
             <img 
-              src="/images/télécharger.jpg" 
-              alt="CGSP Logo" 
+              src="/images/logoSES.jpg" 
+              alt="SES Logo" 
               style={{
                 width: '100%',
                 height: '100%',
@@ -102,7 +102,7 @@ const Login = () => {
             fontWeight: 'bold',
             fontFamily: "'Times New Roman', Times, serif"
           }}>
-            CGSP
+            GESTION SES
           </h1>
           <p style={{
             marginTop: '0.5rem',

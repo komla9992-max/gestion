@@ -40,7 +40,7 @@ export const addLogoImage = async (doc, x, y, width = 40, height = 40) => {
         drawLogo(doc, x, y, width, height)
         resolve()
       }
-      img.src = '/images/télécharger.jpg'
+      img.src = '/images/logoSES.jpg'
     })
   } catch (error) {
     console.error('Erreur lors du chargement du logo:', error)
@@ -54,9 +54,9 @@ const drawLogo = (doc, x, y, width, height) => {
   doc.roundedRect(x, y, width, height, 5, 5, 'F')
   
   doc.setTextColor(255, 255, 255)
-  doc.setFontSize(14)
+  doc.setFontSize(10)
   doc.setFont('times', 'bold')
-  doc.text('CGSP', x + width / 2, y + height / 2 + 5, { align: 'center' })
+  doc.text('GESTION SES', x + width / 2, y + height / 2 + 5, { align: 'center' })
 }
 
 // Fonction pour formater les montants correctement pour jsPDF
