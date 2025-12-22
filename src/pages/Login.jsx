@@ -272,34 +272,6 @@ const Login = () => {
             {loading ? 'Connexion en cours...' : 'Se connecter'}
           </button>
         </form>
-        
-        <div style={{
-          marginTop: '2rem',
-          padding: '1rem',
-          background: '#f8fafc',
-          borderRadius: '8px',
-          border: '1px solid #e2e8f0'
-        }}>
-          <p style={{ 
-            margin: 0, 
-            fontSize: '0.875rem', 
-            color: '#64748b',
-            textAlign: 'center',
-            fontFamily: "'Times New Roman', Times, serif"
-          }}>
-            <strong>Comptes par défaut :</strong>
-          </p>
-          <div style={{ 
-            marginTop: '0.5rem',
-            fontSize: '0.75rem',
-            color: '#475569',
-            fontFamily: "'Times New Roman', Times, serif"
-          }}>
-            <div>Admin: <code>admin@local</code> / <code>admin</code></div>
-            <div>Superviseur: <code>sup@local</code> / <code>sup</code></div>
-            <div>Agent: <code>agent1@local</code> / <code>agent1</code></div>
-          </div>
-        </div>
       </div>
     </div>
   )
