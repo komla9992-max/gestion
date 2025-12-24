@@ -165,3 +165,4 @@ CREATE INDEX IF NOT EXISTS idx_operations_type ON operations(type);
 CREATE INDEX IF NOT EXISTS idx_planning_date ON planning(date);
 CREATE INDEX IF NOT EXISTS idx_conges_employee ON conges(employee_id);
 
+

@@ -108,3 +108,4 @@ Pour migrer les données existantes depuis localStorage vers la base de données
 - Les relations entre tables sont gérées avec des clés étrangères
 - Les index sont créés pour améliorer les performances des requêtes
 
+
